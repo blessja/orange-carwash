@@ -1,4 +1,18 @@
-const mongoose = require('mongoose')
+// models/userModel.js
+
+const mongoose = require('mongoose');
+
+const washSchema = mongoose.Schema({
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  status: {
+    type: String,
+    enum: ['Pending', 'Completed'],
+    default: 'Pending',
+  },
+});
 
 const userSchema = mongoose.Schema(
   {
@@ -14,7 +28,7 @@ const userSchema = mongoose.Schema(
     phone: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     password: {
       type: String,
@@ -22,28 +36,13 @@ const userSchema = mongoose.Schema(
     },
     car: {
       type: String,
-      required: true
+      required: true,
     },
-
-    
-    washHistory: [
-      {
-       
-        date: {
-          type: Date,
-          default: Date.now
-        },
-        status: {
-          type: String,
-          enum: ['Pending', 'Completed'],
-          default: 'Pending'
-        }
-      }
-    ]
+    washHistory: [washSchema], // Add the wash history field
   },
   {
     timestamps: true,
   }
-)
+);
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('User', userSchema);

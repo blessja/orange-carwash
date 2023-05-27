@@ -111,11 +111,36 @@ const getUserById = asyncHandler(async (req, res) => {
 })
 
 
+const washCar = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  // Find the user by ID
+  const user = await User.findById(id);
+
+  if (!user) {
+    res.status(404);
+    throw new Error('User not found');
+  }
+
+  // Update the wash history
+  user.washHistory.push({
+    date: new Date(),
+    status: 'Completed',
+  });
+
+  // Save the updated user
+  await user.save();
+
+  res.status(200).json(user);
+});
+
+
 
 module.exports = {
   registerUser,
   loginUser,
   getMe,
   getUsers,
-  getUserById
+  getUserById,
+  washCar
 }
