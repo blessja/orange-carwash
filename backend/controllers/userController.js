@@ -7,15 +7,15 @@ const User = require('../models/userModel')
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, car, phone } = req.body
+  const { name, password, car, phone } = req.body
 
-  if (!name || !email || !password || !car || !phone ) {
+  if (!name || !password || !car || !phone ) {
     res.status(400)
     throw new Error('Please add all fields')
   }
 
   // Check if user exists
-  const userExists = await User.findOne({ email })
+  const userExists = await User.findOne({ phone })
 
   if (userExists) {
     res.status(400)
@@ -29,7 +29,6 @@ const registerUser = asyncHandler(async (req, res) => {
   // Create user
   const user = await User.create({
     name,
-    email,
     password: hashedPassword,
     car,
     phone,
@@ -40,10 +39,8 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(201).json({
       _id: user.id,
       name: user.name,
-      email: user.email,
       car: user.car,
       phone: user.phone,
-      carwash: user.carwash,
       token: generateToken(user._id),
     })
   } else {
@@ -56,16 +53,16 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route   POST /api/users/login
 // @access  Public
 const loginUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body
+  const { phone, password } = req.body
 
-  // Check for user email
-  const user = await User.findOne({ email })
+  // Check for user phone
+  const user = await User.findOne({ phone })
 
   if (user && (await bcrypt.compare(password, user.password))) {
     res.json({
       _id: user.id,
       name: user.name,
-      email: user.email,
+      phone: user.phone,
       token: generateToken(user._id),
     })
   } else {
@@ -88,8 +85,37 @@ const generateToken = (id) => {
   })
 }
 
+// @desc    Get users
+// @route   GET /api/users
+// @access  Private
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({})
+  res.status(200).json(users)
+})
+
+// @desc Get user by id
+// @desc Get /api/users/:id
+// @access Private
+
+const getUserById = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id)
+  console.log(req.params.id)
+  console.log(user)
+
+  if (user) {
+    res.json(user)
+  } else {
+    res.status(404)
+    throw new Error('User not found')
+  }
+})
+
+
+
 module.exports = {
   registerUser,
   loginUser,
   getMe,
+  getUsers,
+  getUserById
 }

@@ -59,7 +59,26 @@ const getCarwash = asyncHandler(async (req, res) => {
 
 )
 
-// @desc get a carwash
+// @desc Wash a user's car
+// @route POST /api/carwash/users/:userId/wash
+// @access Private
+const washUser = asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+  
+    const user = await User.findById(userId);
+  
+    if (!user) {
+      res.status(404);
+      throw new Error('User not found');
+    }
+  
+    // Perform car wash operation for the user
+    user.carWashed = true;
+    await user.save();
+  
+    res.json({ message: 'Car washed successfully' });
+  });
+  
 
 
-module.exports = { createCarwash, getCarwash }
+module.exports = { createCarwash, getCarwash, washUser }

@@ -1,19 +1,12 @@
-import { useEffect,  useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import Spinner from '../components/Spinner'
-import WashHistory from '../components/WashHistory'
+import { useSelector } from 'react-redux'
 
 function Dashboard() {
   const navigate = useNavigate()
-  const [washDates, setWashDates] = useState([]);
+  
 
-  const handleWashCar = () => {
-    if (washDates.length < 6) {
-      const updatedWashDates = [...washDates, new Date().toLocaleDateString()];
-      setWashDates(updatedWashDates);
-    }
-  };
+
 
   const { user } = useSelector((state) => state.auth)
   const { staff } = useSelector((state) => state.staff);
@@ -34,17 +27,14 @@ function Dashboard() {
     <>
       <section className='heading'>
         <h1>Welcome {user && user.name}</h1>
-        <p>Enjoy the discounts</p>
+   
       </section>
-
+      <section>
+        <img style={{width:"100%", height:"100%"}} src="https://images.unsplash.com/photo-1613216512748-39895e7e9675?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="" />
+      </section>
      
 
-      <section className='content'>
-      <WashHistory washDates={washDates} />
-      <button onClick={handleWashCar} disabled={washDates.length >= 6}>
-        Wash Car
-      </button>
-      </section>
+    
     </>
   )
 }

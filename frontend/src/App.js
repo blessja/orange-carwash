@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import StaffLogin from './pages/StaffLogin'
 import UserDashboard from './pages/UserDashboard'
 import StaffDashboard from './pages/StaffDashboard'
+import UserDetails from './components/UserDetails'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='/staff/login' element={<StaffLogin />} />
             <Route path='/user/dashboard' element={<UserDashboard />} />
             <Route path='/staff/dashboard' element={<StaffDashboard />} />
+            <Route path='/users/:id' element={<UserDetails />} />
           </Routes>
         </div>
       </Router>

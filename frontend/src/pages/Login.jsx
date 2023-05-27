@@ -8,11 +8,11 @@ import Spinner from '../components/Spinner'
 
 function Login() {
   const [formData, setFormData] = useState({
-    email: '',
+    phone: '',
     password: '',
   })
 
-  const { email, password } = formData
+  const { phone, password } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -44,7 +44,7 @@ function Login() {
     e.preventDefault()
 
     const userData = {
-      email,
+      phone,
       password,
     }
 
@@ -68,12 +68,12 @@ function Login() {
         <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
-              type='email'
+              type='phone'
               className='form-control'
-              id='email'
-              name='email'
-              value={email}
-              placeholder='Enter your email'
+              id='phone'
+              name='phone'
+              value={phone}
+              placeholder='Enter your phone number'
               onChange={onChange}
               autoComplete='on'
               

@@ -22,7 +22,7 @@ function Header() {
   return (
     <header style={{background: 'white', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}} className='header'>
       <div style={{display: 'flex', alignItems: 'center', gap: '20px'}} className='logo'>
-        <img style={{width: '100px', height: '100px'}} src={require('../images/android-chrome-192x192.png')} alt="" />
+        <img style={{width: '100px', height: '100px'}} src={require('../images/WhatsApp Image 2023-05-17 at 12.22.35.jpg')} alt="" />
         <Link className='logo-text' to='/' style={{fontSize: '1.8rem', fontWeight: 'bold', color: 'black', textDecoration: 'none'}}>Orange Car Wash </Link>
       </div>
       <ul>

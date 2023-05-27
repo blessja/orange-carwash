@@ -9,15 +9,15 @@ import Spinner from '../components/Spinner'
 function Register() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    // email: '',
     phone: '',
     car: '',
-    carwash: '',
+    // carwash: '',
     password: '',
     password2: '',
   })
 
-  const { name, email, phone, car, carwash, password, password2 } = formData
+  const { name, phone, car, password, password2 } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -53,11 +53,11 @@ function Register() {
     } else {
       const userData = {
         name,
-        email,
+    
         password,
         phone,
         car,
-        carwash,
+      
       }
 
       dispatch(register(userData))
@@ -90,7 +90,7 @@ function Register() {
               onChange={onChange}
             />
           </div>
-          <div className='form-group'>
+          {/* <div className='form-group'>
             <input
               type='email'
               className='form-control'
@@ -100,7 +100,7 @@ function Register() {
               placeholder='Enter your email'
               onChange={onChange}
             />
-          </div>
+          </div> */}
           <div className='form-group'>
             <input
               type='phone'
@@ -119,7 +119,7 @@ function Register() {
               id='car'
               name='car'
               value={car}
-              placeholder='Enter your car model'
+              placeholder='Type of car (eg. Toyota Corolla)'
               onChange={onChange}
             />
           </div>
