@@ -20,6 +20,14 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please add a name'],
     },
+    address: {
+      type: String,
+      required: [false, 'Please add an address'],
+    },
+    city: {
+      type: String,
+      required: [false, 'Please add a city'],
+    },
     email: {
       type: String,
       required: [false, 'Please add an email'],

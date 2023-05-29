@@ -7,9 +7,9 @@ const User = require('../models/userModel')
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, password, car, phone } = req.body
+  const {password, phone } = req.body
 
-  if (!name || !password || !car || !phone ) {
+  if (!password || !phone ) {
     res.status(400)
     throw new Error('Please add all fields')
   }
@@ -28,9 +28,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // Create user
   const user = await User.create({
-    name,
     password: hashedPassword,
-    car,
     phone,
 
   })
@@ -38,8 +36,6 @@ const registerUser = asyncHandler(async (req, res) => {
   if (user) {
     res.status(201).json({
       _id: user.id,
-      name: user.name,
-      car: user.car,
       phone: user.phone,
       token: generateToken(user._id),
     })
@@ -98,17 +94,32 @@ const getUsers = asyncHandler(async (req, res) => {
 // @access Private
 
 const getUserById = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id)
-  console.log(req.params.id)
-  console.log(user)
+  const user = await User.findById(req.params.id);
 
   if (user) {
-    res.json(user)
+    res.json(user);
   } else {
-    res.status(404)
-    throw new Error('User not found')
+    res.status(404);
+    throw new Error('User not found');
   }
-})
+});
+
+const updateUserProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    user.phone = req.body.phone || user.phone;
+    // Update other profile details as needed
+
+    const updatedUser = await user.save();
+    res.json(updatedUser);
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
 
 
 const washCar = asyncHandler(async (req, res) => {
@@ -135,6 +146,17 @@ const washCar = asyncHandler(async (req, res) => {
 });
 
 
+// Get user profile
+const getUserProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
+
 
 module.exports = {
   registerUser,
@@ -142,5 +164,8 @@ module.exports = {
   getMe,
   getUsers,
   getUserById,
-  washCar
+  washCar,
+  updateUserProfile,
+  getUserProfile
+
 }

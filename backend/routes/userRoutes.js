@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const {
@@ -7,7 +6,9 @@ const {
   getMe,
   getUsers,
   getUserById,
-  washCar
+  washCar,
+  getUserProfile,
+  updateUserProfile
 } = require('../controllers/userController');
 const { protect } = require('../middleware/authMiddleware');
 const { updateWashHistory } = require('../controllers/washController');
@@ -18,5 +19,6 @@ router.post('/login', loginUser);
 router.get('/me', protect, getMe);
 router.get('/', getUsers);
 router.post('/:id/wash', washCar, protect, updateWashHistory);
+router.route('/profile').get(protect, getUserProfile).put(protect, updateUserProfile);
 
 module.exports = router;

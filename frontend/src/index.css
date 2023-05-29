@@ -282,3 +282,91 @@ h3 {
     font-size: 0.5rem;
   }
 }
+
+/* Portrait */
+@media only screen and (max-width: 320px) {
+  .form {
+    width: 90%;
+  }
+
+  .heading h1 {
+    font-size: 2rem;
+  }
+
+  .heading p {
+    font-size: 1.5rem;
+  }
+  .logo-text {
+    font-size: 1em !important;
+  }
+
+  .heading ul {
+    display: block !important;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  /* CSS rules specific to iPhone 5/SE in portrait mode */
+}
+
+/* Landscape */
+@media only screen and (max-width: 568px) {
+  /* CSS rules specific to iPhone 5/SE in landscape mode */
+}
+
+
+/* Portrait */
+@media only screen and (max-width: 375px) {
+  /* CSS rules specific to iPhone 6/7/8 in portrait mode */
+}
+
+/* Landscape */
+@media only screen and (max-width: 667px) {
+  /* CSS rules specific to iPhone 6/7/8 in landscape mode */
+}
+
+
+/* Portrait */
+@media only screen and (max-width: 414px) {
+  /* CSS rules specific to iPhone 6/7/8 Plus in portrait mode */
+}
+
+/* Landscape */
+@media only screen and (max-width: 736px) {
+  /* CSS rules specific to iPhone 6/7/8 Plus in landscape mode */
+}
+
+
+/* Portrait */
+@media only screen and (max-width: 375px) {
+  /* CSS rules specific to iPhone X/XS in portrait mode */
+}
+
+/* Landscape */
+@media only screen and (max-width: 812px) {
+  /* CSS rules specific to iPhone X/XS in landscape mode */
+}
+
+
+/* Portrait */
+@media only screen and (max-width: 414px) {
+  /* CSS rules specific to iPhone XR/11 in portrait mode */
+}
+
+/* Landscape */
+@media only screen and (max-width: 896px) {
+  /* CSS rules specific to iPhone XR/11 in landscape mode */
+}
+
+
+/* Portrait */
+@media only screen and (max-width: 414px) {
+  /* CSS rules specific to iPhone XS Max/11 Pro Max in portrait mode */
+}
+
+/* Landscape */
+@media only screen and (max-width: 896px) {
+  /* CSS rules specific to iPhone XS Max/11 Pro Max in landscape mode */
+}

@@ -9,6 +9,7 @@ import StaffLogin from './pages/StaffLogin'
 import UserDashboard from './pages/UserDashboard'
 import StaffDashboard from './pages/StaffDashboard'
 import UserDetails from './components/UserDetails'
+import ProfileEdit from './pages/ProfileEdit'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/user/dashboard' element={<UserDashboard />} />
             <Route path='/staff/dashboard' element={<StaffDashboard />} />
             <Route path='/users/:id' element={<UserDetails />} />
+            <Route path='/users/edit/:id' element={<ProfileEdit />} />
           </Routes>
         </div>
       </Router>

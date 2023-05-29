@@ -25,13 +25,13 @@ const login = async (staffData) => {
 }
 
 // Logout staff
-const logout = () => {
+const logoutStaff = () => {
   localStorage.removeItem('staff')
 }
 
 const staffService = {
   register,
-  logout,
+  logoutStaff,
   login,
 }
 

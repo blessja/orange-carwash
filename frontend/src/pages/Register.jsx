@@ -8,16 +8,16 @@ import Spinner from '../components/Spinner'
 
 function Register() {
   const [formData, setFormData] = useState({
-    name: '',
+    // name: '',
     // email: '',
     phone: '',
-    car: '',
+    // car: '',
     // carwash: '',
     password: '',
     password2: '',
   })
 
-  const { name, phone, car, password, password2 } = formData
+  const { phone, password, password2 } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -52,12 +52,8 @@ function Register() {
       toast.error('Passwords do not match')
     } else {
       const userData = {
-        name,
-    
         password,
         phone,
-        car,
-      
       }
 
       dispatch(register(userData))
@@ -79,7 +75,7 @@ function Register() {
 
       <section className='form'>
         <form onSubmit={onSubmit}>
-          <div className='form-group'>
+          {/* <div className='form-group'>
             <input
               type='text'
               className='form-control'
@@ -88,8 +84,9 @@ function Register() {
               value={name}
               placeholder='Enter your name'
               onChange={onChange}
+              autoComplete='on'
             />
-          </div>
+          </div> */}
           {/* <div className='form-group'>
             <input
               type='email'
@@ -110,9 +107,10 @@ function Register() {
               value={phone}
               placeholder='Enter your phone number'
               onChange={onChange}
+              autoComplete='on'
             />
           </div>
-          <div className='form-group'>
+          {/* <div className='form-group'>
             <input
               type='car'
               className='form-control'
@@ -121,8 +119,9 @@ function Register() {
               value={car}
               placeholder='Type of car (eg. Toyota Corolla)'
               onChange={onChange}
+              autoComplete='on'
             />
-          </div>
+          </div> */}
           <div className='form-group'>
             <input
               type='password'
@@ -132,6 +131,7 @@ function Register() {
               value={password}
               placeholder='Enter password'
               onChange={onChange}
+              autoComplete='on'
             />
           </div>
           <div className='form-group'>
@@ -143,6 +143,7 @@ function Register() {
               value={password2}
               placeholder='Confirm password'
               onChange={onChange}
+              autoComplete='on'
             />
           </div>
           <div className='form-group'>
