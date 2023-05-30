@@ -230,6 +230,9 @@ h3 {
   color: #054b1a;
 }
 
+/* ===================================================================== */
+
+
 
 @keyframes spin {
   0% {
@@ -304,10 +307,26 @@ h3 {
     display: block !important;
   }
 
-  .header {
+  .header .logo {
     width: 100%;
   }
 
+  .header img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .logo-text{
+    font-size: 10px !important;
+  }
+
+  .mobile-menu ul li {
+    font-size: 0.5rem;
+  }
+
+  .container {
+ padding: 0;
+}
   /* CSS rules specific to iPhone 5/SE in portrait mode */
 }
 
@@ -319,6 +338,45 @@ h3 {
 
 /* Portrait */
 @media only screen and (max-width: 375px) {
+  .form {
+    width: 90%;
+  }
+
+  .heading h1 {
+    font-size: 2rem;
+  }
+
+  .heading p {
+    font-size: 1.5rem;
+  }
+  .logo-text {
+    font-size: 1em !important;
+  }
+
+  .heading ul {
+    display: block !important;
+  }
+
+  .header .logo {
+    width: 100%;
+  }
+
+  .header img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .logo-text{
+    font-size: 10px !important;
+  }
+
+  .mobile-menu ul li {
+    font-size: 0.5rem;
+  }
+
+  .container {
+ padding: 0;
+}
   /* CSS rules specific to iPhone 6/7/8 in portrait mode */
 }
 
