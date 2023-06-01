@@ -1,36 +1,46 @@
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const User = require('../models/userModel');
 const asyncHandler = require('express-async-handler')
-const User = require('../models/userModel')
 
+// Generate JWT
+const generateToken = (id) => {
+  const secret = 'my_secret_key'; // Replace with your desired secret key
+  return jwt.sign({ id }, secret, {
+    expiresIn: '30d',
+  });
+};
+
+// Protect routes
 const protect = asyncHandler(async (req, res, next) => {
-  let token
+  let token;
 
+  // Check if the authorization header exists and starts with "Bearer"
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith('Bearer')
   ) {
     try {
-      // Get token from header
-      token = req.headers.authorization.split(' ')[1]
+      // Get the token from the authorization header
+      token = req.headers.authorization.split(' ')[1];
 
-      // Verify token
-      const decoded = jwt.verify(token, process.env.JWT_SECRET)
+      // Verify the token using the secret key
+      const decoded = jwt.verify(token, 'my_secret_key'); // Replace with your secret key
 
-      // Get user from the token
-      req.user = await User.findById(decoded.id).select('-password')
+      // Assign the decoded payload to the request object
+      req.user = await User.findById(decoded.id).select('-password');
 
-      next()
+      next();
     } catch (error) {
-      console.log(error)
-      res.status(401)
-      throw new Error('Not authorized')
+      console.error(error);
+      res.status(401);
+      throw new Error('Not authorized, token failed');
     }
   }
 
   if (!token) {
-    res.status(401)
-    throw new Error('Not authorized, no token')
+    res.status(401);
+    throw new Error('Not authorized, no token');
   }
-})
+});
 
-module.exports = { protect }
+module.exports = { protect, generateToken };

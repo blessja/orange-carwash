@@ -1,23 +1,15 @@
 import React from 'react';
 
-const WashHistory = ({ washDates }) => {
+function WashHistory({ washHistory }) {
   return (
-    <div className="wash-history">
-      <div className="date-column">
-        {washDates.map((date, index) => (
-          <div className="date-item" key={index}>
-            <div className="date-number">{index + 1}</div>
-            <div className="date-text">{date}</div>
-            {index + 1 === washDates.length && (
-              <div className="status-text">
-                {index + 1 === 6 ? 'Congratulations! You Earned a Free Wash' : 'Washed'}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
+    <ul>
+      {washHistory.map((wash) => (
+        <li key={wash._id.$oid}>
+          Date: {new Date(wash.date.$date.$numberLong).toLocaleString()} | Status: {wash.status}
+        </li>
+      ))}
+    </ul>
   );
-};
+}
 
 export default WashHistory;

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileEdit = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch the user's profile data and populate the form
@@ -23,6 +25,7 @@ const ProfileEdit = () => {
     fetchProfile();
   }, []);
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,6 +33,9 @@ const ProfileEdit = () => {
       const response = await axios.put('/api/users/profile', { name, email, phone });
       // Handle success
       console.log('Profile updated successfully:', response.data);
+
+      // Redirect to the dashboard after successful profile update
+      navigate('/user/dashboard');
     } catch (error) {
       // Handle error
     }

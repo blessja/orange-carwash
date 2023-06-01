@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 
+
 const washSchema = mongoose.Schema({
   date: {
     type: Date,
@@ -15,6 +16,7 @@ const washSchema = mongoose.Schema({
 });
 
 const userSchema = mongoose.Schema(
+  
   {
     name: {
       type: String,

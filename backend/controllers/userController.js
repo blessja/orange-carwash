@@ -71,8 +71,16 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route   GET /api/users/me
 // @access  Private
 const getMe = asyncHandler(async (req, res) => {
-  res.status(200).json(req.user)
-})
+  const user = await User.findById(req.user._id); // Fetch the currently authenticated user using the req.user object
+
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
+
 
 // Generate JWT
 const generateToken = (id) => {
@@ -157,6 +165,23 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+const getUserWashHistory = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  // Find the user by ID
+  const user = await User.findById(id);
+
+  if (!user) {
+    res.status(404);
+    throw new Error('User not found');
+  }
+
+  // Return the wash history
+  res.status(200).json(user.washHistory);
+});
+
+
+
 
 module.exports = {
   registerUser,
@@ -166,6 +191,7 @@ module.exports = {
   getUserById,
   washCar,
   updateUserProfile,
-  getUserProfile
+  getUserProfile,
+  getUserWashHistory
 
 }

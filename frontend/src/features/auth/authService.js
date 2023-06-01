@@ -37,12 +37,13 @@ const getUsers = async () => {
 // Get user by id
 const getUserById = async (userId) => {
   try {
-    const response = await axios.get(`${API_URL}/users/${userId}`);
+    const response = await axios.get(`${API_URL}/${userId}`);
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message);
   }
 };
+
 
 // Wash the user
 const washUser = async (userId) => {
