@@ -20,57 +20,42 @@ const StaffDashboard = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Staff Dashboard</h2>
-      {users.map((user) => (
-        <Link key={user._id} to={`/users/${user._id}`}>
-          <UserCard user={user} />
+    <div style={{ padding: '20px', background: '#FDEDD0' }}>
+      <button
+        style={{
+          display: 'inline-block',
+          padding: '10px 20px',
+          background: 'orange',
+          color: 'white',
+          fontWeight: 'bold',
+          borderRadius: '4px',
+          textDecoration: 'none',
+          marginBottom: '20px',
+          border: 'none',
+          cursor: 'pointer',
+        }}
+      >
+        <Link to='/register-customer' style={{ color: 'white', textDecoration: 'none' }}>
+          Register Customer
         </Link>
-      ))}
+      </button>
+      <h2 style={{ marginBottom: '20px' }}>Staff Dashboard</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+        {users.map((user) => (
+          <div
+            key={user._id}
+            style={{ width: '300px', background: 'white', padding: '20px', borderRadius: '8px' }}
+          >
+            <Link to={`/users/${user._id}`}>
+              <UserCard user={user} />
+            </Link>
+            {/* <p>Email: {user.email}</p> */}
+            <p>Phone: {user.phone}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default StaffDashboard;
-
-
-
-
-
-// import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-// import { getUsers, selectUsers } from '../features/auth/authSlice';
-
-// const StaffDashboard = () => {
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
-//   const users = useSelector(selectUsers);
-
-//   useEffect(() => {
-//     // Fetch the list of users when the component mounts
-//     dispatch(getUsers());
-//   }, [dispatch]);
-
-//   const handleUserClick = (userId) => {
-//     // Navigate to the user details page when a user is clicked
-//     navigate(`/users/${userId}`);
-//   };
-
-//   return (
-//     <div>
-//       <h1>Staff Dashboard</h1>
-//       <h2>Users</h2>
-//       {users.map((user) => (
-//         <div key={user.id} onClick={() => handleUserClick(user.id)}>
-//           <p>Name: {user.name}</p>
-//           <p>Email: {user.email}</p>
-//           <p>Phone: {user.phone}</p>
-//           {/* Add more user details as needed */}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default StaffDashboard;

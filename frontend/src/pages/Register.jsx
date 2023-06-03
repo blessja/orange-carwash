@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { FaUser } from 'react-icons/fa'
-import { register, reset } from '../features/auth/authSlice'
+import { register} from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
 
 function Register() {
   const [formData, setFormData] = useState({
     // name: '',
-    // email: '',
+   
     phone: '',
     // car: '',
     // carwash: '',
@@ -30,12 +30,15 @@ function Register() {
     if (isError) {
       toast.error(message)
     }
-
     if (isSuccess || user) {
-      navigate('/')
+      navigate('/staff/dashboard')
     }
+    // if (isSuccess || user) {
+    //   const userId = user?.id || ''; // Ensure user.id is defined or set it to an empty string
+    //   navigate(`/user/dashboard/${userId}`)
+    // }
 
-    dispatch(reset())
+    // dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
@@ -85,17 +88,6 @@ function Register() {
               placeholder='Enter your name'
               onChange={onChange}
               autoComplete='on'
-            />
-          </div> */}
-          {/* <div className='form-group'>
-            <input
-              type='email'
-              className='form-control'
-              id='email'
-              name='email'
-              value={email}
-              placeholder='Enter your email'
-              onChange={onChange}
             />
           </div> */}
           <div className='form-group'>

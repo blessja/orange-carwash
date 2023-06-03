@@ -11,7 +11,7 @@ const UserCard = ({ user }) => {
   return (
     <div>
       <h3>{user.name}</h3> {/* Make sure 'user' and 'name' exist before accessing */}
-      <p>Email: {user.email}</p>
+      <p>Name: {user.Name}</p>
       <p>Phone: {user.phone}</p>
       <Link to={`/users/${user._id}`}>View Details</Link>
     </div>

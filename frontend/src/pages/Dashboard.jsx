@@ -16,7 +16,7 @@ function Dashboard() {
     if (!user) {
       navigate('/');
     }
-    if (staff) {
+    if (!staff) {
       navigate('/');
     }
   }, [user, staff, navigate]);

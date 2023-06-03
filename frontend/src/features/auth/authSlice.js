@@ -14,9 +14,9 @@ const initialState = {
 };
 
 // Register user
-export const register = createAsyncThunk('auth/register', async (user, thunkAPI) => {
+export const register = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
   try {
-    return await authService.register(user);
+    return await authService.register(userData);
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -25,6 +25,7 @@ export const register = createAsyncThunk('auth/register', async (user, thunkAPI)
     return thunkAPI.rejectWithValue(message);
   }
 });
+
 
 // Login user
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {

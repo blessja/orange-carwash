@@ -64,11 +64,11 @@ function Header() {
                     <FaSignInAlt /> Login Customer
                   </Link>
                 </li>
-                <li onClick={closeMobileMenu}>
+                {/* <li onClick={closeMobileMenu}>
                   <Link to='/register'>
                     <FaUser /> Register Customer
                   </Link>
-                </li>
+                </li> */}
               </>
             )}
           </ul>

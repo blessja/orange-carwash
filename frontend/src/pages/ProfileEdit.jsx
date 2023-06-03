@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 const ProfileEdit = () => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,10 +13,10 @@ const ProfileEdit = () => {
     const fetchProfile = async () => {
       try {
         const response = await axios.get('/api/users/profile');
-        const { name, email, phone } = response.data;
+        const { name, address, city, } = response.data;
         setName(name);
-        setEmail(email);
-        setPhone(phone);
+        setAddress(address);
+        setCity(city);
       } catch (error) {
         // Handle error
       }
@@ -30,7 +30,7 @@ const ProfileEdit = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.put('/api/users/profile', { name, email, phone });
+      const response = await axios.put('/api/users/profile', { name, address, city });
       // Handle success
       console.log('Profile updated successfully:', response.data);
 
@@ -50,12 +50,12 @@ const ProfileEdit = () => {
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <label>Address:</label>
+          <input type="address" value={address} onChange={(e) => setAddress(e.target.value)} />
         </div>
         <div>
-          <label>Phone:</label>
-          <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
+          <label>City:</label>
+          <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
         </div>
         <button type="submit">Save</button>
       </form>
