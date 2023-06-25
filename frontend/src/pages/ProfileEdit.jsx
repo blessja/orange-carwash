@@ -9,12 +9,17 @@ import Button from '@material-ui/core/Button';
 function UserProfileUpdate() {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
   const [city, setCity] = useState('');
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
   const handleAddressChange = (event) => {
@@ -39,6 +44,7 @@ function UserProfileUpdate() {
           name,
           address,
           city,
+          email,
         }),
       });
 
@@ -48,6 +54,7 @@ function UserProfileUpdate() {
       } else {
         // Handle the error response
         const errorData = await response.json();
+        console.log('Error:', errorData.message);
         // Display or handle the error as needed
       }
     } catch (error) {
@@ -67,6 +74,15 @@ function UserProfileUpdate() {
             label="Name"
             value={name}
             onChange={handleNameChange}
+            fullWidth
+            required
+          />
+        </div>
+        <div>
+          <TextField
+            label="Email"
+            value={email}
+            onChange={handleEmailChange}
             fullWidth
             required
           />

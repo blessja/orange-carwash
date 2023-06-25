@@ -128,7 +128,7 @@ function UserDashboard() {
           ) : (
             <Typography variant="body1">No wash history available.</Typography>
           )}
-          <Link to="/update-profile">Update Profile</Link>
+          {/* <Link to="/update-profile">Update Profile</Link> */}
         </div>
       ) : (
         <Typography variant="body1">{error ? error : 'Loading user information...'}</Typography>
