@@ -46,7 +46,7 @@ const userSchema = mongoose.Schema(
     },
     car: {
       type: String,
-      required: true,
+      required: false,
     },
     washHistory: [washSchema], // Add the wash history field
   },
@@ -56,3 +56,4 @@ const userSchema = mongoose.Schema(
 );
 
 module.exports = mongoose.model('User', userSchema);
+ 

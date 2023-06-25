@@ -1,14 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
-const asyncHandler = require('express-async-handler')
-
-// Generate JWT
-const generateToken = (id) => {
-  const secret = 'my_secret_key'; // Replace with your desired secret key
-  return jwt.sign({ id }, secret, {
-    expiresIn: '30d',
-  });
-};
+const asyncHandler = require('express-async-handler');
+require('dotenv').config();
 
 // Protect routes
 const protect = asyncHandler(async (req, res, next) => {
@@ -24,7 +17,7 @@ const protect = asyncHandler(async (req, res, next) => {
       token = req.headers.authorization.split(' ')[1];
 
       // Verify the token using the secret key
-      const decoded = jwt.verify(token, 'my_secret_key'); // Replace with your secret key
+      const decoded = jwt.verify(token, process.env.JWT_SECRET); // Replace with your secret key
 
       // Assign the decoded payload to the request object
       req.user = await User.findById(decoded.id).select('-password');
@@ -43,4 +36,4 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 });
 
-module.exports = { protect, generateToken };
+module.exports = { protect };

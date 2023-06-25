@@ -39,7 +39,7 @@ function UserDashboard() {
       const response = await fetch(`http://localhost:5000/api/users/${userId}`);
       const data = await response.json();
 
-      console.log('Response:', data);
+      // console.log('Response:', data);
 
       if (response.ok) {
         setUserInfo(data);
@@ -79,7 +79,7 @@ function UserDashboard() {
           </div>
           <Divider />
           <List>
-            <Link to="/profile" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link to={`/profile/${user._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <ListItem button>
                 <ListItemIcon>
                   <AccountCircleIcon />
@@ -96,12 +96,13 @@ function UserDashboard() {
           <Typography variant="h4" gutterBottom>
             Welcome, {userInfo.name || userInfo.phone}!
           </Typography>
-          {/* <Typography variant="subtitle1" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom>
             Email: {userInfo.email}
-          </Typography> */}
+          </Typography>
           <Typography variant="subtitle1" gutterBottom>
             Phone: {userInfo.phone}
           </Typography>
+          
 
           <Typography variant="h5" gutterBottom>
             Wash History
@@ -127,6 +128,7 @@ function UserDashboard() {
           ) : (
             <Typography variant="body1">No wash history available.</Typography>
           )}
+          <Link to="/update-profile">Update Profile</Link>
         </div>
       ) : (
         <Typography variant="body1">{error ? error : 'Loading user information...'}</Typography>

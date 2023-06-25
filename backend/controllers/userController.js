@@ -53,7 +53,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   // Check for user phone
   const user = await User.findOne({ phone })
-
+  
   if (user && (await bcrypt.compare(password, user.password))) {
     res.json({
       _id: user.id,
@@ -82,12 +82,17 @@ const getMe = asyncHandler(async (req, res) => {
 });
 
 
-// Generate JWT
+//Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: '30d',
   })
 }
+// const generateToken = (userId) => {
+//   const secretKey = 'my_secret_key'; // Replace with your desired secret key
+//   const token = jwt.sign({ id: userId }, secretKey, { expiresIn: '30d' });
+//   return token;
+// };
 
 // @desc    Get users
 // @route   GET /api/users

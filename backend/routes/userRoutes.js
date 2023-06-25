@@ -14,8 +14,8 @@ const {
 const { protect } = require('../middleware/authMiddleware');
 const { updateWashHistory } = require('../controllers/washController');
 
-router.get('/profile', protect, getUserProfile);
-router.put('/profile', protect, updateUserProfile);
+
+router.route('/:id/profile').get(protect, getUserProfile).put(protect, updateUserProfile);
 router.get('/:id', getUserById);
 router.post('/', registerUser);
 router.post('/login', loginUser);

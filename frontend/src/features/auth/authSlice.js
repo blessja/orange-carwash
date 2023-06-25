@@ -67,6 +67,20 @@ export const getUsers = createAsyncThunk('auth/getUsers', async () => {
   }
 });
 
+export const updateProfile = createAsyncThunk('auth/updateProfile', async (profileData, thunkAPI) => {
+  try {
+    const response = await authService.updateUserProfile(thunkAPI.getState().auth.user._id, profileData);
+    return response;
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+
 export const logout = createAsyncThunk('auth/logout', async () => {
   await authService.logout();
 });
@@ -146,6 +160,26 @@ export const authSlice = createSlice({
         state.isError = true;
         state.message = action.error.message;
       })
+      .addCase(updateProfile.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.message = '';
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        // Update the user object in the state with the updated profile information
+        state.user = { ...state.user, ...action.payload };
+      })
+      .addCase(updateProfile.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+
+
+
+
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
       });
@@ -153,6 +187,8 @@ export const authSlice = createSlice({
 });
 
 export const { reset } = authSlice.actions;
+
+
 
 export const selectUsers = (state) => state.auth.users;
 

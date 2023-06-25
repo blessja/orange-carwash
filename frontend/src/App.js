@@ -11,6 +11,7 @@ import StaffDashboard from './pages/StaffDashboard';
 import UserDetails from './components/UserDetails';
 import ProfileEdit from './pages/ProfileEdit';
 import RegistrationForm from './components/RegistrationForm'; // Add this line
+import UserProfileUpdate from './pages/UserProfileUpdate ';
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
             <Route path='/user/dashboard/' element={<UserDashboard />} />
             <Route path='/staff/dashboard' element={<StaffDashboard />} />
             <Route path='/users/:id' element={<UserDetails />} />
-            <Route path='/profile' element={<ProfileEdit />} />
+            <Route path='/profile/:userId' element={<ProfileEdit />} />
+            <Route path='/user/dashboard/:id' element={<UserDashboard />} />
+            <Route path='/update-profile' element={<UserProfileUpdate />} />
             <Route path='/register-customer' element={<RegistrationForm />} /> // Add this line
           </Routes>
         </div>

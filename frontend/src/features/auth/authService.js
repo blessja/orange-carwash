@@ -55,6 +55,16 @@ const washUser = async (userId) => {
   }
 };
 
+// Update user profile
+const updateUserProfile = async (userId, profileData) => {
+  try {
+    const response = await axios.put(`${API_URL}/${userId}/profile`, profileData);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};
+
 // Logout user
 const logout = () => {
   localStorage.removeItem('user');
@@ -67,6 +77,7 @@ const authService = {
   getUsers,
   getUserById,
   washUser,
+   updateUserProfile,
 };
 
 export default authService;
