@@ -29,7 +29,7 @@ function UserProfileUpdate() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${user._id}/profile`, {
+      const response = await fetch(`https://orangecarwash.herokuapp.com/api/users/${user._id}/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
