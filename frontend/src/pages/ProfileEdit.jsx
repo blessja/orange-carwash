@@ -69,42 +69,51 @@ function UserProfileUpdate() {
         Update Profile
       </Typography>
       <form onSubmit={handleSubmit}>
-        <div>
-          <TextField
-            label="Name"
-            value={name}
-            onChange={handleNameChange}
-            fullWidth
-            required
-          />
+        <div className="form-group">
+          <div>
+            <TextField
+              label="Name"
+              value={name}
+              onChange={handleNameChange}
+              fullWidth
+              required
+            />
+          </div>
         </div>
-        <div>
-          <TextField
-            label="Email"
-            value={email}
-            onChange={handleEmailChange}
-            fullWidth
-            required
-          />
+        <div className="form-group">
+          <div>
+            <TextField
+              label="Email"
+              value={email}
+              onChange={handleEmailChange}
+              fullWidth
+              required
+            />
+          </div>
         </div>
-        <div>
-          <TextField
-            label="Address"
-            value={address}
-            onChange={handleAddressChange}
-            fullWidth
-            required
-          />
+        <div className="form-group">
+          <div>
+            <TextField
+              label="Address"
+              value={address}
+              onChange={handleAddressChange}
+              fullWidth
+              required
+            />
+          </div>
         </div>
-        <div>
-          <TextField
-            label="City"
-            value={city}
-            onChange={handleCityChange}
-            fullWidth
-            required
-          />
+        <div className="form-group">
+          <div>
+            <TextField
+              label="City"
+              value={city}
+              onChange={handleCityChange}
+              fullWidth
+              required
+            />
+          </div>
         </div>
+
         <div>
           <Button type="submit" variant="contained" color="primary">
             Update
