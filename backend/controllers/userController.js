@@ -7,9 +7,9 @@ const User = require('../models/userModel')
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const {password, phone } = req.body
+  const {password, phone, number_plate } = req.body
 
-  if (!password || !phone ) {
+  if (!password || !phone, !number_plate ) {
     res.status(400)
     throw new Error('Please add all fields')
   }
@@ -30,6 +30,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     password: hashedPassword,
     phone,
+    number_plate,
 
   })
 
@@ -37,6 +38,7 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(201).json({
       _id: user.id,
       phone: user.phone,
+      number_plate: user.number_plate,
       token: generateToken(user._id),
     })
   } else {
@@ -57,7 +59,7 @@ const loginUser = asyncHandler(async (req, res) => {
   if (user && (await bcrypt.compare(password, user.password))) {
     res.json({
       _id: user.id,
-      name: user.name,
+     
       phone: user.phone,
       token: generateToken(user._id),
     })
@@ -124,6 +126,9 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.phone = req.body.phone || user.phone;
+    user.address = req.body.address || user.address;
+    user.city = req.body.city || user.city;
+    user.car = req.body.car || user.car;
     // Update other profile details as needed
 
     const updatedUser = await user.save();

@@ -21,7 +21,8 @@ router.post('/', registerUser);
 router.post('/login', loginUser);
 router.get('/me', protect, getMe);
 router.get('/', getUsers);
-router.post('/:id/wash', protect, washCar, updateWashHistory);
+// router.post('/:id/wash', protect, washCar, updateWashHistory);
+router.post('/:id/wash', washCar, protect, updateWashHistory);
 // Public route to get user's wash history
 router.get('/:id/wash-history', getUserWashHistory);
 

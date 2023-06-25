@@ -9,7 +9,7 @@ const UserDetails = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${id}`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${id}`);
         const data = await response.json();
         setUser(data);
         setIsButtonDisabled(localStorage.getItem(id) === 'true');
@@ -23,7 +23,7 @@ const UserDetails = () => {
 
   const handleWashCar = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${id}/wash`, {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${id}/wash`, {
         method: 'POST',
       });
       const data = await response.json();

@@ -10,6 +10,7 @@ function UserProfileUpdate() {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
+  const [car, setCar] = useState('');
   const [city, setCity] = useState('');
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -20,6 +21,10 @@ function UserProfileUpdate() {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+  };
+
+  const handleCarChange = (event) => {
+    setCar(event.target.value);
   };
 
   const handleAddressChange = (event) => {
@@ -34,7 +39,7 @@ function UserProfileUpdate() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`https://orangecarwash.herokuapp.com/api/users/${user._id}/profile`, {
+      const response = await fetch(`http://localhost:5000/api/users/${user._id}/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -86,6 +91,17 @@ function UserProfileUpdate() {
               label="Email"
               value={email}
               onChange={handleEmailChange}
+              fullWidth
+              required
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div>
+            <TextField
+              label="Car"
+              value={car}
+              onChange={handleCarChange}
               fullWidth
               required
             />

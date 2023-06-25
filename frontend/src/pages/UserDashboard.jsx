@@ -36,7 +36,7 @@ function UserDashboard() {
 
   const fetchUserData = async (userId) => {
     try {
-      const response = await fetch(`https://orangecarwash.herokuapp.com/api/users/${userId}`);
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${userId}`);
       const data = await response.json();
 
       // console.log('Response:', data);
@@ -102,7 +102,9 @@ function UserDashboard() {
           <Typography variant="subtitle1" gutterBottom>
             Phone: {userInfo.phone}
           </Typography>
-          
+          <Typography variant="subtitle1" gutterBottom>
+            Address: {userInfo.address}
+          </Typography>
 
           <Typography variant="h5" gutterBottom>
             Wash History

@@ -20,7 +20,7 @@ const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'Please add a name'],
+      required: [false, 'Please add a name'],
     },
     address: {
       type: String,
@@ -43,6 +43,11 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: [true, 'Please add a password'],
+    },
+    number_plate: {
+      type: String,
+      required: false,
+      unique: true,
     },
     car: {
       type: String,
