@@ -38,7 +38,7 @@ function UserDashboard() {
 
   const fetchUserData = async (userId) => {
     try {
-      const response = await fetch(`https://orangecarwash.herokuapp.com/api/users/${userId}`);
+      const response = await fetch(`https://vast-spire-19892-363405976c22.herokuapp.com/api/users/${userId}`);
       const data = await response.json();
 
       // console.log('Response:', data);
