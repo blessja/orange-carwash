@@ -15,8 +15,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import {CircularProgress } from '@material-ui/core';
-
 
 function UserDashboard() {
   const [userInfo, setUserInfo] = useState(null);
@@ -38,7 +36,7 @@ function UserDashboard() {
 
   const fetchUserData = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${userId}`);
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${userId}`);
       const data = await response.json();
 
       // console.log('Response:', data);
@@ -56,18 +54,13 @@ function UserDashboard() {
   };
 
   const formatDate = (dateString) => {
-    const options = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
-  };
-
-  const getNextWashNumber = () => {
-    const lastWashNumber = washHistory.length;
-    return lastWashNumber + 1;
   };
 
   return (
     <Container maxWidth="sm">
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px', color: '#4682B4' }}>
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
         <IconButton onClick={() => setIsDrawerOpen(true)}>
           <MenuIcon fontSize="large" />
         </IconButton>
@@ -100,42 +93,40 @@ function UserDashboard() {
 
       {userInfo ? (
         <div>
-          <Typography variant="h4" gutterBottom style={{ color: '#4682B4' }}>
+          <Typography variant="h4" gutterBottom>
             Welcome, {userInfo.name || userInfo.phone}!
           </Typography>
-          <Typography variant="h5" gutterBottom style={{ color: '#4682B4', marginTop: '40px', }}>
-          UPCOMING DISCOUNTS
+          <Typography variant="subtitle1" gutterBottom>
+            Email: {userInfo.email}
           </Typography>
-        
-       
+          <Typography variant="subtitle1" gutterBottom>
+            Phone: {userInfo.phone}
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            Address: {userInfo.address}
+          </Typography>
+
+          <Typography variant="h5" gutterBottom>
+            Wash History
+          </Typography>
           {washHistory.length > 0 ? (
-                 <List>
-                 {washHistory.map((wash, index) => (
-                   <ListItem key={wash._id}>
-                     <Grid container alignItems="center" spacing={10}>
-                       <Grid item xs={4}>
-                         <ListItemText primary={formatDate(wash.date)} />
-                       </Grid>
-                       <Grid item xs={4}>
-                         <div style={{ position: 'relative', display: 'inline-block' }}>
-                           <CircularProgress
-                             variant="determinate"
-                             value={100}
-                             size={30}
-                             thickness={5}
-                           />
-                           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-                             <span style={{ fontWeight: 'bold' }}>{index + 1}</span>
-                           </div>
-                         </div>
-                       </Grid>
-                       <Grid item xs={4}>
-                         <ListItemText primary="Completed" align="right" />
-                       </Grid>
-                     </Grid>
-                   </ListItem>
-                 ))}
-               </List>
+            <List>
+              {washHistory.map((wash) => (
+                <ListItem key={wash._id}>
+                  <Grid container alignItems="center" spacing={2}>
+                    <Grid item xs={4}>
+                      <ListItemText primary={formatDate(wash.date)} />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <LinearProgress variant="determinate" value={100} />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <ListItemText primary="Completed" align="right" />
+                    </Grid>
+                  </Grid>
+                </ListItem>
+              ))}
+            </List>
           ) : (
             <Typography variant="body1">No wash history available.</Typography>
           )}

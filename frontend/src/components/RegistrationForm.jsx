@@ -49,10 +49,10 @@ const RegistrationForm = () => {
   return (
     <div>
         <section className='heading'>
-        <h4>
-          <FaUser /> REGISTER NEW CUSTOMER
-        </h4>
-        
+        <h1>
+          <FaUser /> Register
+        </h1>
+        <p>Please create an account</p>
       </section>
       <section className="form">
         <form onSubmit={handleSubmit}>
@@ -106,7 +106,7 @@ const RegistrationForm = () => {
           </div>
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>
-            REGISTER
+              Submit
             </button>
           </div>
       </form>

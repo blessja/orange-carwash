@@ -60,9 +60,9 @@ function Login() {
     <>
       <section className='heading'>
         <h1>
-          <FaSignInAlt /> Customer Login 
+          <FaSignInAlt /> Login Customer
         </h1>
-       
+        <p>Login and start getting car wash discounts</p>
       </section>
 
       <section className='form'>
@@ -74,7 +74,7 @@ function Login() {
               id='phone'
               name='phone'
               value={phone}
-              placeholder='Cell Number' 
+              placeholder='Enter your phone number'
               onChange={onChange}
               autoComplete='on'
             />
@@ -86,7 +86,7 @@ function Login() {
               id='password'
               name='password'
               value={password}
-              placeholder='Password'
+              placeholder='Enter password'
               onChange={onChange}
               autoComplete='on'
             />
@@ -94,7 +94,7 @@ function Login() {
 
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>
-              LOG IN
+              Submit
             </button>
           </div>
         </form>

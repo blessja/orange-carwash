@@ -1,5 +1,4 @@
 import { FaBars, FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa';
-import { IconContext } from "react-icons";
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -36,13 +35,12 @@ function Header() {
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }} className='logo'>
         <img style={{ width: '100px', height: '100px' }} src={require('../images/WhatsApp Image 2023-05-17 at 12.22.35.jpg')} alt='' />
-        <Link className='logo-text' to='/' style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#4682B4', textDecoration: 'none' }}>
+        <Link className='logo-text' to='/' style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'black', textDecoration: 'none' }}>
           Orange Car Wash
         </Link>
       </div>
 
       {/* Hamburger menu */}
-      <IconContext.Provider value={{ color: '#4682B4' }}>
       <div className='mobile-menu'>
         <FaBars onClick={toggleMobileMenu} />
         {isMobileMenuOpen && (
@@ -50,21 +48,20 @@ function Header() {
             {user !== staff ? (
               <li onClick={closeMobileMenu}>
                 <button className='btn' onClick={onLogout}>
-                Logout
+                  <FaSignOutAlt /> Logout
                 </button>
               </li>
             ) : (
               <>
                 <li onClick={closeMobileMenu}>
                   <Link to='/staff/login'>
-                    
-                    Carwash Login
+                    <FaSignInAlt />
+                    Staff Login
                   </Link>
                 </li>
-               
                 <li onClick={closeMobileMenu}>
                   <Link to='/login'>
-                    Customer Login
+                    <FaSignInAlt /> Login Customer
                   </Link>
                 </li>
                 {/* <li onClick={closeMobileMenu}>
@@ -77,7 +74,6 @@ function Header() {
           </ul>
         )}
       </div>
-      </IconContext.Provider>
     </header>
   );
 }

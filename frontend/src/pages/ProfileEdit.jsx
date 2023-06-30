@@ -39,7 +39,7 @@ function UserProfileUpdate() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${user._id}/profile`, {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${user._id}/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
