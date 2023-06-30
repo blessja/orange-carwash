@@ -10,15 +10,15 @@ const Staff  = require('../models/staffModel')
 // @access Public
 
 const registerStaff = asyncHandler(async (req,res) => {
-    const {name,email,password, carwash} = req.body
+    const {phone,password,} = req.body
 
-    if(!name || !email || !password || !carwash){
+    if(!phone || !password  ){
         res.status(400)
         throw new Error('Please add all fields')
     }
 
     // Check if staff exists
-    const staffExists = await Staff.findOne({email})
+    const staffExists = await Staff.findOne({phone})
 
     if(staffExists){
         res.status(400)
@@ -31,17 +31,14 @@ const registerStaff = asyncHandler(async (req,res) => {
 
     // Create staff
     const staff = await Staff.create({
-        name,
-        email,
-        carwash,
+        phone,
         password: hashedPassword
     })
 
     if(staff){
         res.status(201).json({
             _id: staff.id,
-            name: staff.name,
-            email: staff.email,
+            phone: staff.phone,
             carwash: staff.carwash,
             token: generateToken(staff._id)
         })
@@ -60,16 +57,15 @@ const registerStaff = asyncHandler(async (req,res) => {
 // @access Public
 
 const loginStaff = asyncHandler(async (req,res) => {
-    const {email,password} = req.body
+    const {phone,password} = req.body
 
     // Check for staff email
-    const staff = await Staff.findOne({email})
+    const staff = await Staff.findOne({phone})
 
     if(staff && (await bcrypt.compare(password,staff.password))){
         res.json({
             _id: staff.id,
-            name: staff.name,
-            email: staff.email,
+            phone: staff.phone,
             token: generateToken(staff._id)
         })
     }else{
@@ -106,4 +102,3 @@ module.exports = {
     getStaffData
     
 }
-
