@@ -97,7 +97,7 @@ function Register() {
               id='phone'
               name='phone'
               value={phone}
-              placeholder='Enter your phone number'
+              placeholder='(Cell Number)'
               onChange={onChange}
               autoComplete='on'
             />
@@ -121,7 +121,7 @@ function Register() {
               id='password'
               name='password'
               value={password}
-              placeholder='Enter password'
+              placeholder='Enter password (Cell Number)'
               onChange={onChange}
               autoComplete='on'
             />
@@ -133,14 +133,14 @@ function Register() {
               id='password2'
               name='password2'
               value={password2}
-              placeholder='Confirm password'
+              placeholder='Confirm password (Cell Number)'
               onChange={onChange}
               autoComplete='on'
             />
           </div>
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>
-              Submit
+            REGISTER
             </button>
           </div>
         </form>
