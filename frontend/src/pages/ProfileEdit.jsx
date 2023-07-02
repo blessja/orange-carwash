@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 function UserProfileUpdate() {
@@ -70,64 +69,70 @@ function UserProfileUpdate() {
 
   return (
     <Container maxWidth="sm">
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" style={{color: '#4682B4'}} gutterBottom>
         Update Profile
       </Typography>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <div>
-            <TextField
-              label="Name"
+        <input
+              type='name'
+              className='form-control'
+              id='name'
+              name='name'
               value={name}
+              placeholder='Name'
               onChange={handleNameChange}
-              fullWidth
-              required
+              autoComplete='on'
             />
           </div>
-        </div>
+        
         <div className="form-group">
-          <div>
-            <TextField
-              label="Email"
+        <input
+              type='email'
+              className='form-control'
+              id='email'
+              name='email'
               value={email}
+              placeholder='Email'
               onChange={handleEmailChange}
-              fullWidth
-              required
+              autoComplete='on'
             />
-          </div>
         </div>
         <div className="form-group">
-          <div>
-            <TextField
-              label="Car"
+        <input
+              type='car'
+              className='form-control'
+              id='car'
+              name='car'
               value={car}
+              placeholder='Car'
               onChange={handleCarChange}
-              fullWidth
-              required
+              autoComplete='on'
             />
-          </div>
         </div>
         <div className="form-group">
-          <div>
-            <TextField
-              label="Address"
+        <input
+              type='address'
+              className='form-control'
+              id='address'
+              name='address'
               value={address}
+              placeholder='Address'
               onChange={handleAddressChange}
-              fullWidth
-              required
+              autoComplete='on'
             />
-          </div>
         </div>
         <div className="form-group">
-          <div>
-            <TextField
-              label="City"
+        <input
+              type='city'
+              className='form-control'
+              id='city'
+              name='city'
               value={city}
+              placeholder='City'
               onChange={handleCityChange}
-              fullWidth
-              required
+              autoComplete='on'
             />
-          </div>
         </div>
 
         <div>
