@@ -22,7 +22,7 @@ const StaffDashboard = () => {
   return (
     <section>
       <div className="hd">
-        <h2 style={{color: '#4682B4', paddingBottom: '20px'}}>DASHBOARD</h2>
+        <h2 className='stdb' style={{color: '#4682B4', paddingBottom: '20px'}}>DASHBOARD</h2>
       </div>
       <div className="reg-btn">
         <button
@@ -44,10 +44,10 @@ const StaffDashboard = () => {
           </Link>
         </button>
       </div>
-      <div style={{ padding: '20px', background: '#DBE2ED', opacity: '1' }}>
+      <div style={{ padding: '20px', background: '#DBE2ED', opacity: '1', }}>
 
         <h4 style={{ marginBottom: '20px', color: '#4682B4' }}>REGISTERED CUSTOMERS</h4>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginRight: 'auto', marginLeft: '40px', opacity: '0.7' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginRight: 'auto', marginLeft: 'auto', opacity: '0.7' }}>
           {users.map((user) => (
             <div className="user-card"
               key={user._id}

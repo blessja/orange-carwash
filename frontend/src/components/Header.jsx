@@ -32,15 +32,13 @@ function Header() {
 
   return (
     <header
-      style={{ background: 'white', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+      style={{ background: 'white', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}
       className='header'
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '80px' }} className='logo'>
-        <img style={{ width: '100px', height: '100px' }} src={require('../images/WhatsApp Image 2023-05-17 at 12.22.35.jpg')} alt='' />
-        <Link className='logo-text' to='/' style={{ fontSize: '16px', fontWeight: 'bold', color: '#4682B4', textDecoration: 'none', textAlign: 'center',  }}>
-          Orange Car Wash
-        </Link>
-      </div>
+      
+        <img style={{ width: '100px', height: '100px', }} src={require('../images/WhatsApp Image 2023-05-17 at 12.22.35.jpg')} alt='' />
+        <h1 className='carwash-h'> Orange Car Wash</h1>
+      
 
       {/* Hamburger menu */}
       <IconContext.Provider value={{ color: '#4682B4' }}>

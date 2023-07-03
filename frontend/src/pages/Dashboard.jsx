@@ -24,7 +24,7 @@ function Dashboard() {
   return (
     <>
       <section className='heading'>
-        <h2 style={{ color: '#4682B4',  }}>DISCOUNTS AWAIT</h2>
+        <h2 className='dis-h2' style={{ color: '#4682B4',  }}>DISCOUNTS AWAIT</h2>
         <p>Wash 5 times and get 1 wash FREE!</p>
         <button
           style={{
@@ -55,11 +55,11 @@ function Dashboard() {
           </div>
 
           <ListItem className='list-items'>
-            <Grid container alignItems="center" spacing={2}>
+            <Grid container alignItems="center" spacing={1}>
               <Grid item xs={4}>
                 <ListItemText primary="Wash & Go" />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={3}>
                 <ListItemText primary="R xxx" />
               </Grid>
               <Grid item xs={4}>
@@ -70,7 +70,7 @@ function Dashboard() {
               <Grid item xs={4}>
                 <ListItemText primary="Wash & Dry" />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={3}>
                 <ListItemText primary="R xxx" />
               </Grid>
               <Grid item xs={4}>
