@@ -37,7 +37,7 @@ function Header() {
     >
       
         <img style={{ width: '100px', height: '100px', }} src={require('../images/WhatsApp Image 2023-05-17 at 12.22.35.jpg')} alt='' />
-        <h1 className='carwash-h'> Orange Car Wash</h1>
+        <h1 className='carwash-h'> CAR WASH NAME</h1>
       
 
       {/* Hamburger menu */}

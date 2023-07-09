@@ -25,7 +25,7 @@ function Dashboard() {
     <>
       <section className='heading'>
         <h2 className='dis-h2' style={{ color: '#4682B4',  }}>DISCOUNTS AWAIT</h2>
-        <p>Wash 5 times and get 1 wash FREE!</p>
+        <p className='cta-p'>Wash 5 times and get 1 wash FREE!</p>
         <button
           style={{
             display: 'inline-block',

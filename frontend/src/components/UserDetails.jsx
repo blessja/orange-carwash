@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import Snackbar from "@material-ui/core/Snackbar";
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#4682B4', // Replace with your desired custom color
+      main: "#789cbb", // Replace with your desired custom color
     },
   },
 });
@@ -22,12 +22,14 @@ const UserDetails = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`https://vast-spire-19892-363405976c22.herokuapp.com/api/users/${id}`);
+        const response = await fetch(
+          `https://vast-spire-19892-363405976c22.herokuapp.com/api/users/${id}`
+        );
         const data = await response.json();
         setUser(data);
-        setIsButtonDisabled(localStorage.getItem(id) === 'true');
+        setIsButtonDisabled(localStorage.getItem(id) === "true");
       } catch (error) {
-        console.error('Error fetching user:', error);
+        console.error("Error fetching user:", error);
       }
     };
 
@@ -36,17 +38,20 @@ const UserDetails = () => {
 
   const handleWashCar = async () => {
     try {
-      const response = await fetch(`https://vast-spire-19892-363405976c22.herokuapp.com/api/users/${id}/wash`, {
-        method: 'POST',
-      });
+      const response = await fetch(
+        `https://vast-spire-19892-363405976c22.herokuapp.com/api/users/${id}/wash`,
+        {
+          method: "POST",
+        }
+      );
       const data = await response.json();
       setUser(data);
-      console.log('Wash history updated');
+      console.log("Wash history updated");
       setIsButtonDisabled(true);
-      localStorage.setItem(id, 'true');
+      localStorage.setItem(id, "true");
       setShowNotification(true);
     } catch (error) {
-      console.error('Error washing car:', error);
+      console.error("Error washing car:", error);
     }
   };
 
@@ -56,13 +61,13 @@ const UserDetails = () => {
 
   useEffect(() => {
     const handlePageReload = () => {
-      setIsButtonDisabled(localStorage.getItem(id) === 'true');
+      setIsButtonDisabled(localStorage.getItem(id) === "true");
     };
 
-    window.addEventListener('beforeunload', handlePageReload);
+    window.addEventListener("beforeunload", handlePageReload);
 
     return () => {
-      window.removeEventListener('beforeunload', handlePageReload);
+      window.removeEventListener("beforeunload", handlePageReload);
     };
   }, [id]);
 
@@ -72,31 +77,63 @@ const UserDetails = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ background: '#DBE2ED', padding: '20px', borderRadius: '8px' }}>
-        <h3 style={{ marginBottom: '20px', color: '#4682B4' }}>RECORD A WASH</h3>
-        <div style={{ background: '#4682B4', opacity: '1', padding: '20px', borderRadius: '8px' }}>
-          <p style={{ marginBottom: '10px', color: '', opacity: '1', font: 'bold' }}>
-            Name: {user.name}
+      <div
+        style={{ background: "#fff", padding: "20px", borderRadius: "8px" }}
+      >
+        <h3 style={{ marginBottom: "20px", color: "#4682B4", fontFamily: "Montserrat", paddingTop:"40px", fontWeight: "600", fontSize: "19px" }}>
+          RECORD A WASH
+        </h3>
+        <div
+          style={{
+            background: "#4682B4",
+            opacity: "1",
+            padding: "20px",
+            borderRadius: "8px",
+            textAlign: "left"
+          }}
+        >
+        <div>
+        <p
+            style={{
+              marginBottom: "10px",
+              color: "",
+              opacity: "1",
+              color: "#045293",
+              fontFamily: "Montserrat",
+              fontWeight: "bolder"
+            }}
+          >
+          {user.name}
           </p>
-          <p style={{ marginBottom: '10px' }}>Phone: {user.phone}</p>
-          <p style={{ marginBottom: '10px' }}>Number Plate: {user.number_plate}</p>
-          <p style={{ marginBottom: '10px' }}>Car: {user.car}</p>
-          <Button
+          <p style={{ marginBottom: "10px", color: "#045293", fontFamily: "Montserrat",
+              fontWeight: "lighter" }}>{user.phone}</p>
+          <p style={{ marginBottom: "10px",  color: "#045293",  fontFamily: "Montserrat",
+              fontWeight: "lighter" }}>
+             {user.number_plate}
+          </p>
+          <p style={{ marginBottom: "10px", color: "#045293",fontFamily: "Montserrat",
+              fontWeight: "lighter"  }}> {user.car}</p>
+        </div>
+        
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", paddingTop: "30px",}}>
+        <Button
             variant="contained"
-            color="primary"
+            
             onClick={handleWashCar}
             disabled={isButtonDisabled}
-            style={{ marginTop: '10px' }}
+            style={{ marginTop: "10px", backgroundColor: "#4682B4",color: "#fff",   }}
             component="button"
+            
           >
-            {isButtonDisabled ? 'Car Washed' : 'Wash Car'}
+            {isButtonDisabled ? "Car Washed" : "Wash Car"}
           </Button>
         </div>
         <Button
-          style={{ marginTop: '20px' }}
+          style={{ marginTop: "60px", backgroundColor: "#4682B4", color: "#fff", }}
           variant="contained"
-          color="primary"
-          onClick={() => navigate('/staff/dashboard')}
+         
+          onClick={() => navigate("/staff/dashboard")}
           component="button"
         >
           HOME

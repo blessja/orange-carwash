@@ -22,7 +22,7 @@ const StaffDashboard = () => {
   return (
     <section>
       <div className="hd">
-        <h2 className='stdb' style={{color: '#4682B4', paddingBottom: '20px'}}>DASHBOARD</h2>
+        <h2 className='stdb' style={{color: '#4682B4', paddingBottom: '20px', marginTop: "30px", fontWeight: "600"}}>DASHBOARD</h2>
       </div>
       <div className="reg-btn">
         <button

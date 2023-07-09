@@ -58,8 +58,8 @@ function Login() {
   return (
     <>
       <section className='heading'>
-        <h1>
-          <FaSignInAlt />  Car Wash Login
+        <h1 style={{fontSize: "23px", fontWeight: "600", paddingTop: "20px"}} className='login-title'>
+        LOG IN
         </h1>
        
       </section>
@@ -73,7 +73,7 @@ function Login() {
               id='phone'
               name='phone'
               value={phone}
-              placeholder='Enter your phone number'
+              placeholder='Cell Number'
               onChange={onChange}
               autoComplete='yes'
             />
@@ -85,7 +85,7 @@ function Login() {
               id='password'
               name='password'
               value={password}
-              placeholder='Enter password'
+              placeholder='Password'
               onChange={onChange}
               autoComplete='yes'
             />

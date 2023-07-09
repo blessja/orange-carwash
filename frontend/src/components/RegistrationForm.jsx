@@ -50,7 +50,7 @@ const RegistrationForm = () => {
     <div>
         <section className='heading'>
         <h4>
-          <FaUser /> REGISTER NEW CUSTOMER
+        REGISTER NEW CUSTOMER
         </h4>
         
       </section>
@@ -75,7 +75,7 @@ const RegistrationForm = () => {
               id='phone'
               name='phone'
               value={phone}
-              placeholder='Enter your phone number'
+              placeholder='Enter Customer phone number'
               onChange={handleChange}
               autoComplete='on'
             />

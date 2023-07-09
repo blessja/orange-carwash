@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap");
 
 * {
   margin: 0;
@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 100vh;
 }
 
@@ -20,7 +20,6 @@ a {
 p {
   line-height: 1.7;
   color: #d0d8df;
-  
 }
 
 ul {
@@ -42,16 +41,15 @@ h3 {
 h1 {
   font-size: 20px;
   font-weight: 700;
-  color: #4682B4;
+  color: #4682b4;
   font-family: "Montserrat", sans-serif;
 }
 
 .dis-h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   letter-spacing: 0.53px;
   padding-top: 10px;
-
 }
 
 .container {
@@ -65,7 +63,6 @@ h1 {
 .logo-text {
   font-weight: bold;
   font-size: 30px;
-  
 }
 
 .header {
@@ -104,24 +101,24 @@ h1 {
 .heading {
   font-size: 1rem;
   font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 50px;
   padding: 0 20px;
-  color: #4682B4;
+  color: #4682b4;
   margin-left: 10px;
 }
 
 .heading p {
-  color: #4682B4;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 100;
+  color: #4682b4;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
   letter-spacing: 0.4px;
   opacity: 1;
 }
 
 .stdb {
-  font-family: 'Montserrat', sans-serif;
- font-weight: 500 !important;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500 !important;
 }
 
 .form-group {
@@ -133,30 +130,29 @@ h1 {
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #DBE2ED;
+  border: 1px solid #dbe2ed;
   border-radius: 8px;
   margin-bottom: 10px;
   font-family: inherit;
-  background: #DBE2ED 0% 0% no-repeat padding-box;
+  background: #dbe2ed 0% 0% no-repeat padding-box;
 }
 
 input::placeholder {
-  color: #4682B4;
+  color: #4682b4;
 }
-
 
 .form-group label {
   text-align: left;
   display: block;
   margin: 0 0 5px 3px;
-  color: #4682B4;
+  color: #4682b4;
 }
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid #4682B4;
+  border: 1px solid #4682b4;
   border-radius: 25px;
-  background: #4682B4;
+  background: #4682b4;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -170,35 +166,34 @@ input::placeholder {
 
 .price-list {
   width: 344px;
-height: 243px;
-font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans;
-background: #DBE2ED 0% 0% no-repeat padding-box;
-border-radius: 8px;
-opacity: 1;
-margin-left: auto;
-margin-right: auto;
-color: #4682B4;
+  height: 243px;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans;
+  background: #dbe2ed 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  opacity: 1;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4682b4;
 }
 
 .price-list-heading {
-
-width: 66px;
-height: 15px;
-text-align: left;
-font: normal normal 600 12px/15px Montserrat;
-font: semiBold, sans-serif;
-font-size: 12px;
-letter-spacing: -0.12px;
-color: #4682B4;
-margin-left: 10px;
-padding-top: 15px;
+  width: 66px;
+  height: 15px;
+  text-align: left;
+  font: normal normal 600 12px/15px Montserrat;
+  font: semiBold, sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.12px;
+  color: #4682b4;
+  margin-left: 10px;
+  padding-top: 15px;
 }
 
 .list-items {
   margin-top: 50px;
 }
 
-.type-1{
+.type-1 {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
@@ -227,8 +222,6 @@ padding-top: 15px;
   transform: scale(0.98);
 }
 
-
-
 .loadingSpinnerContainer {
   position: fixed;
   top: 0;
@@ -250,7 +243,6 @@ padding-top: 15px;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }
-
 
 .wash-history {
   display: flex;
@@ -290,8 +282,6 @@ padding-top: 15px;
 
 /* ===================================================================== */
 
-
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -311,11 +301,11 @@ padding-top: 15px;
   }
 
   .heading p {
-    font-size: 1.5rem;
+    font-size: 12px;
   }
   .logo-text {
     font-size: 20px !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
   }
 
@@ -328,7 +318,7 @@ padding-top: 15px;
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 360px) {
   .container {
     width: 100%;
   }
@@ -338,17 +328,51 @@ padding-top: 15px;
 
   .heading h1 {
     font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
   }
-  .heading{
+  .carwash-h {
+    font-size: 19px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+  }
+  .dis-h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.53px;
+    padding-top: 10px;
+  }
+  .cta-p {
+    font-size: 10px;
+  }
+  .heading {
     width: 100%;
+    padding: 0;
   }
-  .heading p {
-    font-size: 1.5rem;
-  }
+  /* .heading p {
+    font: 200;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.4px;
+    color: #4682B4;
+  } */
   .logo-text {
     font-size: 16px !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
+  }
+
+  .login-title {
+    font-size: 19px;
+  }
+  .btn-block {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  h4 {
+    font-family:"Montserrat", sans-serif;
+    font-weight: 600;
+    margin-top: 30px;
   }
 }
 
@@ -369,7 +393,7 @@ padding-top: 15px;
   }
   .logo-text {
     font-size: 30px !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
   }
 
@@ -379,16 +403,14 @@ padding-top: 15px;
 
   .header .logo {
     width: 100%;
-    
   }
- .carwash-h {
-  padding-right: 10px !important;
- }
+  .carwash-h {
+    padding-right: 10px !important;
+  }
 
   /* .logo {
     gap: 10px !important;
   } */
-
 
   .header img {
     width: 50px !important;
@@ -406,8 +428,8 @@ padding-top: 15px;
   }
 
   .container {
- padding: 0;
-}
+    padding: 0;
+  }
   /* CSS rules specific to iPhone 5/SE in portrait mode */
 }
 
@@ -415,7 +437,6 @@ padding-top: 15px;
 @media only screen and (max-width: 568px) {
   /* CSS rules specific to iPhone 5/SE in landscape mode */
 }
-
 
 /* Portrait */
 @media only screen and (max-width: 375px) {
@@ -432,7 +453,7 @@ padding-top: 15px;
   }
   .logo-text {
     font-size: 16px !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
   }
 
@@ -449,7 +470,7 @@ padding-top: 15px;
     height: 50px !important;
   }
 
-  .logo-text{
+  .logo-text {
     font-size: 10px !important;
   }
 
@@ -461,8 +482,8 @@ padding-top: 15px;
   }
 
   .container {
- padding: 0;
-}
+    padding: 0;
+  }
   /* CSS rules specific to iPhone 6/7/8 in portrait mode */
 }
 
@@ -481,7 +502,7 @@ padding-top: 15px;
   }
   .logo-text {
     font-size: 16px !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
   }
 
@@ -498,9 +519,9 @@ padding-top: 15px;
     height: 50px !important;
   }
 
-  .logo-text{
+  .logo-text {
     font-size: 16px !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
   }
 
@@ -509,11 +530,10 @@ padding-top: 15px;
   }
 
   .container {
- padding: 0;
-}
+    padding: 0;
+  }
   /* CSS rules specific to iPhone 6/7/8 in landscape mode */
 }
-
 
 /* Portrait */
 @media only screen and (max-width: 414px) {
@@ -528,7 +548,6 @@ padding-top: 15px;
     margin-right: 20px !important;
   }
 
-
   .heading h1 {
     font-size: 2rem;
   }
@@ -538,7 +557,7 @@ padding-top: 15px;
   }
   .logo-text {
     font-size: 16px !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
   }
 
@@ -555,9 +574,9 @@ padding-top: 15px;
     height: 50px !important;
   }
 
-  .logo-text{
+  .logo-text {
     font-size: 16px !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
   }
 
@@ -566,11 +585,10 @@ padding-top: 15px;
   }
 
   .container {
- padding: 0;
-}
+    padding: 0;
+  }
   /* CSS rules specific to iPhone 6/7/8 Plus in landscape mode */
 }
-
 
 /* Portrait */
 @media only screen and (max-width: 375px) {
@@ -582,7 +600,6 @@ padding-top: 15px;
   /* CSS rules specific to iPhone X/XS in landscape mode */
 }
 
-
 /* Portrait */
 @media only screen and (max-width: 414px) {
   /* CSS rules specific to iPhone XR/11 in portrait mode */
@@ -592,7 +609,6 @@ padding-top: 15px;
 @media only screen and (max-width: 896px) {
   /* CSS rules specific to iPhone XR/11 in landscape mode */
 }
-
 
 /* Portrait */
 @media only screen and (max-width: 414px) {
