@@ -55,21 +55,6 @@ function Header() {
                 </li>
               ) : (
                 <>
-                  <li onClick={closeMobileMenu}>
-                    <Link to='/staff/login'>
-                      Carwash Login
-                    </Link>
-                  </li>
-                  <li onClick={closeMobileMenu}>
-                    <Link to='/login'>
-                      Customer Login
-                    </Link>
-                  </li>
-                  {/* <li onClick={closeMobileMenu}>
-                    <Link to='/register'>
-                      <FaUser /> Register Customer
-                    </Link>
-                  </li> */}
                 </>
               )}
             </ul>

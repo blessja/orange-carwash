@@ -4,12 +4,23 @@ import { useSelector } from 'react-redux';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import LoginModal from '../components/LoginModal';
 
 function Dashboard() {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const { staff } = useSelector((state) => state.staff);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleClick = () => {
+    handleLoginClick();
+  };
+
+  const [isShowLogin, setIsShowLogin] = useState(true);
+
+  const handleLoginClick = () => {
+    setIsShowLogin((isShowLogin) => !isShowLogin);
+  };
 
   useEffect(() => {
     if (!user || !staff) {
@@ -41,11 +52,14 @@ function Dashboard() {
             cursor: 'pointer',
             opacity: '1',
           }}
-          onClick={openMobileMenu}
+          onClick={handleClick}
         >
           GET STARTED
         </button>
+       
+        
       </section>
+      < LoginModal isShowLogin={isShowLogin}/>
       <section>
         <div className="price-list">
           <h5 className='price-list-heading'>PRICE LIST</h5>
