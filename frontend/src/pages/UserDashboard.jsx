@@ -143,26 +143,36 @@ function UserDashboard() {
             <ListItem style={{ color: 'gray' }}>
               <Grid container alignItems="center" spacing={0}>
                 <Grid item xs={6}>
-                  <ListItemText primary="Next" />
+                  <ListItemText primary="NEXT WASH" />
                 </Grid>
                 <Grid item xs={2}>
-                  <ListItemText primary={index + 2} />
+                <div style={{ position: 'relative', display: 'inline-block', backgroundColor: 'gray', borderRadius: '50%', width: '40px', height: '40px' }}>
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                  <span style={{ fontWeight: 'bold', backgroundColor: 'gray', color: 'white' }}>{index + 2}</span>
+                </div>
+              </div>
+                  {/* <ListItemText primary={index + 2} /> */}
                 </Grid>
                 <Grid item xs={4}>
-                  <ListItemText primary="-------" align="right" />
+                  <ListItemText primary="-------------" align="right" />
                 </Grid>
               </Grid>
             </ListItem>
             <ListItem style={{ color: '#4682B4' }}>
               <Grid container alignItems="center" spacing={0}>
                 <Grid item xs={6}>
-                  <ListItemText primary="Free Wash" />
+                  <ListItemText style={{color: "gray"}} primary="FREE WASH" />
                 </Grid>
                 <Grid item xs={2}>
-                  <ListItemText primary={index + 3} />
+                <div style={{ position: 'relative', display: 'inline-block', backgroundColor: 'gray', borderRadius: '50%', width: '40px', height: '40px' }}>
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                  <span style={{ fontWeight: 'bold', backgroundColor: 'gray', color: 'white' }}>{5}</span>
+                </div>
+              </div>
+                  {/* <ListItemText primary={5} /> */}
                 </Grid>
                 <Grid item xs={4}>
-                  <ListItemText primary="100%" align="right" />
+                  <ListItemText style={{color: "gray"}} primary="100%" align="right" />
                 </Grid>
               </Grid>
             </ListItem>
