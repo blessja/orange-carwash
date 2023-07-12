@@ -105,13 +105,13 @@ const UserDetails = () => {
           >
           {user.name}
           </p>
-          <p style={{ marginBottom: "10px", color: "#045293", fontFamily: "Montserrat",
+          <p style={{ marginBottom: "10px", color: "#fff", fontFamily: "Montserrat",
               fontWeight: "lighter" }}>{user.phone}</p>
-          <p style={{ marginBottom: "10px",  color: "#045293",  fontFamily: "Montserrat",
+          <p style={{ marginBottom: "10px",  color: "#fff",  fontFamily: "Montserrat",
               fontWeight: "lighter" }}>
              {user.number_plate}
           </p>
-          <p style={{ marginBottom: "10px", color: "#045293",fontFamily: "Montserrat",
+          <p style={{ marginBottom: "10px", color: "#fff",fontFamily: "Montserrat",
               fontWeight: "lighter"  }}> {user.car}</p>
         </div>
         

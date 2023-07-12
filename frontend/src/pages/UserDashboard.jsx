@@ -117,46 +117,70 @@ function UserDashboard() {
             UPCOMING DISCOUNTS
           </Typography>
 
-
           {washHistory.length > 0 ? (
-            <List>
-              {washHistory.map((wash, index) => (
-                <ListItem key={wash._id} style={{ color: '#12F329' }} >
-                  <Grid container alignItems="center" spacing={0}>
-                    <Grid item xs={6}>
-                      <ListItemText primary={formatDate(wash.date)} />
-                    </Grid>
-                    <Grid item xs={2}>
-                      <div style={{ position: 'relative', display: 'inline-block', backgroundColor: '#12F329', borderRadius: '50%', width: '40px', height: '40px', }}>
-                        {/* <CircularProgress
-                             variant="determinate"
-                             value={100}
-                             size={30}
-                             thickness={5}
-                             color='#12F329'
-                             backgroundColor='#12F329'
-                           /> */}
-                        <div style={{ position: 'absolute', top: '50%', left: '50%', backgroundColor: '#12F329', transform: 'translate(-50%, -50%)' }}>
-                          <span style={{ fontWeight: 'bold', backgroundColor: '#12F329', color: 'white' }}>{index + 1}</span>
-                        </div>
-                      </div>
-                    </Grid>
-                    <Grid item xs={4}>
-                      <ListItemText primary="WASHED" align="right" />
-                    </Grid>
-                  </Grid>
-                </ListItem>
-              ))}
-            </List>
-          ) : (
-            <Typography variant="body1">No wash history available.</Typography>
-          )}
+  <List>
+    {washHistory.map((wash, index) => (
+      <React.Fragment key={wash._id}>
+        <ListItem style={{ color: '#12F329' }}>
+          <Grid container alignItems="center" spacing={0}>
+            <Grid item xs={6}>
+              <ListItemText primary={formatDate(wash.date)} />
+            </Grid>
+            <Grid item xs={2}>
+              <div style={{ position: 'relative', display: 'inline-block', backgroundColor: '#12F329', borderRadius: '50%', width: '40px', height: '40px' }}>
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                  <span style={{ fontWeight: 'bold', backgroundColor: '#12F329', color: 'white' }}>{index + 1}</span>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={4}>
+              <ListItemText primary="WASHED" align="right" />
+            </Grid>
+          </Grid>
+        </ListItem>
+        {index === washHistory.length - 1 && (
+          <React.Fragment>
+            <ListItem style={{ color: 'gray' }}>
+              <Grid container alignItems="center" spacing={0}>
+                <Grid item xs={6}>
+                  <ListItemText primary="Next" />
+                </Grid>
+                <Grid item xs={2}>
+                  <ListItemText primary={index + 2} />
+                </Grid>
+                <Grid item xs={4}>
+                  <ListItemText primary="-------" align="right" />
+                </Grid>
+              </Grid>
+            </ListItem>
+            <ListItem style={{ color: '#4682B4' }}>
+              <Grid container alignItems="center" spacing={0}>
+                <Grid item xs={6}>
+                  <ListItemText primary="Free Wash" />
+                </Grid>
+                <Grid item xs={2}>
+                  <ListItemText primary={index + 3} />
+                </Grid>
+                <Grid item xs={4}>
+                  <ListItemText primary="100%" align="right" />
+                </Grid>
+              </Grid>
+            </ListItem>
+          </React.Fragment>
+        )}
+      </React.Fragment>
+    ))}
+  </List>
+) : (
+  <Typography variant="body1">No wash history available.</Typography>
+)}
+
           {/* <Link to="/update-profile">Update Profile</Link> */}
         </div>
       ) : (
         <Typography variant="body1">{error ? error : 'Loading user information...'}</Typography>
       )}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px', marginLeft: "40px" }}>
         <button className='btn' onClick={onLogout}>
           EXIT
         </button>
