@@ -39,7 +39,7 @@ const UserDetails = () => {
   const handleWashCar = async () => {
     try {
       const response = await fetch(
-        `https://vast-spire-19892-363405976c22.herokuapp.com/api/users/${id}/wash`,
+        `https://orangecarwash.herokuapp.com/.herokuapp.com/api/users/${id}/wash`,
         {
           method: "POST",
         }

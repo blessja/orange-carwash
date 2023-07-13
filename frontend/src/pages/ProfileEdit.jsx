@@ -38,7 +38,7 @@ function UserProfileUpdate() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`https://vast-spire-19892-363405976c22.herokuapp.com/api/users/${user._id}/profile`, {
+      const response = await fetch(`https://orangecarwash.herokuapp.com/.herokuapp.com/api/users/${user._id}/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
