@@ -74,10 +74,10 @@ function Dashboard() {
                 <ListItemText primary="Wash & Go" />
               </Grid>
               <Grid item xs={3}>
-                <ListItemText primary="R xxx" />
+                <ListItemText primary="R 45" />
               </Grid>
               <Grid item xs={4}>
-                <ListItemText primary="R xxx" align="right" />
+                <ListItemText primary="R 50" align="right" />
               </Grid>
 
 
@@ -85,10 +85,10 @@ function Dashboard() {
                 <ListItemText primary="Wash & Dry" />
               </Grid>
               <Grid item xs={3}>
-                <ListItemText primary="R xxx" />
+                <ListItemText primary="R 70" />
               </Grid>
               <Grid item xs={4}>
-                <ListItemText primary="R xxx" align="right" />
+                <ListItemText primary="R 90" align="right" />
               </Grid>
             </Grid>
           </ListItem>
