@@ -30,11 +30,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [false, 'Please add a city'],
     },
-    email: {
-      type: String,
-      required: [false, 'Please add an email'],
-      unique: true,
-    },
+    
     phone: {
       type: String,
       required: true,
