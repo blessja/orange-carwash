@@ -8,7 +8,7 @@ const StaffDashboard = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch(`https://orangecarwash.herokuapp.com/api/users`);
+        const response = await fetch(`https://fastcarwash-b49bd2628179.herokuapp.com/api/users`);
         const data = await response.json();
         setUsers(data);
       } catch (error) {

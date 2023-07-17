@@ -23,7 +23,7 @@ const UserDetails = () => {
     const fetchUser = async () => {
       try {
         const response = await fetch(
-          `https://vast-spire-19892-363405976c22.herokuapp.com/api/users/${id}`
+          `https://fastcarwash-b49bd2628179.herokuapp.com/api/users/${id}`
         );
         const data = await response.json();
         setUser(data);
@@ -39,7 +39,7 @@ const UserDetails = () => {
   const handleWashCar = async () => {
     try {
       const response = await fetch(
-        `https://orangecarwash.herokuapp.com/.herokuapp.com/api/users/${id}/wash`,
+        `https://fastcarwash-b49bd2628179.herokuapp.com/api/users/${id}/wash`,
         {
           method: "POST",
         }
